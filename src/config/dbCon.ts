@@ -10,7 +10,10 @@ const config: sql.config = {
     database: process.env.DB_DATABASE!,
     options: {
         encrypt: true,
-        trustServerCertificate: true
+        trustServerCertificate: true,
+        cryptoCredentialsDetails: {
+            minVersion: 'TLSv1.2'       
+          }
     },
 };
 

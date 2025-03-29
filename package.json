@@ -9,11 +9,13 @@
     "@types/node": "^22.13.13",
     "axios": "^1.8.4",
     "dotenv": "^16.4.7",
+    "json2csv": "^6.0.0-alpha.2",
     "mssql": "^11.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
+    "@types/json2csv": "^5.0.7",
     "@types/mssql": "^9.1.7"
   }
 }
