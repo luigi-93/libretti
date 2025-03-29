@@ -4,17 +4,24 @@ export const jsonExtract = (json: any) => {
 
     const responsabile = json.SchedaIdentificativa?.ResponsabileImpianto;
 
-    const nome = responsabile?.Nome;
-    const cognome = responsabile?.Cognome;
+    
     const ragioneSociale = responsabile?.RagioneSociale;
 
-    if (!nome || !cognome || ragioneSociale) {
-        ragioneSociale.split(' '),      
-        nome === ragioneSociale[0],
-        cognome === ragioneSociale[1]
-    
-    } 
-           
+    let nome;
+    let cognome;
+
+    if (!responsabile?.Nome && !responsabile?.Cognome && ragioneSociale) {
+        const split = ragioneSociale.trim().split(/\s+/).filter(Boolean);
+        if (split.length > 0) {
+            nome = split[0];
+            cognome = split.length > 1 ? split.slice(1).join(' ') : 'null';
+        }   
+    } else {
+        nome = responsabile?.Nome ;
+        cognome = responsabile?.Cognome;
+
+    }
+       
     const caldaia = json.Generatori?.GruppiTermici_Caldaie?.[0]?.SituazioneIniziale;
     const verifica = json.RisultatiVerifichePeriodiche?.VerificheGruppiTermici_Caldaie?.GruppoTermico?.[0]?.Verifiche?.[0];
     const valoriMisurati = verifica?.ValoriMisurati;

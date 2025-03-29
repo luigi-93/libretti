@@ -99,12 +99,12 @@ const sampledata =
             },
             "ResponsabileImpianto": {
                 "Compilato": false,
-                "Cognome": null,
+                "Cognome": "pippo",
                 "Nome": null,
                 "CodiceFiscale": null,
                 "PostaElettronica": null,
                 "PostaCertificata": null,
-                "RagioneSociale": "Marotta Vittorio",
+                "RagioneSociale": "Marotta de de de Vittorio",
                 "PartitaIVA": null,
                 "Firma": null,
                 "Tipologia": 1,
@@ -335,6 +335,7 @@ const sampledata =
         },
         "versione": "1.2.0"
     }
+
 
 const extract = jsonExtract(sampledata);
 console.log(extract);

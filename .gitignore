@@ -17,6 +17,7 @@ dist/
 
 # Environment variables
 .env
+.csv
 
 # TypeScript declaration files
 typings/
