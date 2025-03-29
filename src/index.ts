@@ -5,7 +5,7 @@ import { saveAsCSV } from "./utils/fileWriter";
 import { setTimeout } from 'timers/promises';
 
 const BATCH_SIZE = 50; 
-const DELAY_MS = 200; 
+const DELAY_MS = 100; 
 
 const run = async () => {
     try {
@@ -18,12 +18,10 @@ const run = async () => {
             const guid = guids[i];
             try {
                 const json = await fetchLibrettoData(guid);
-                trasfromedData.push(jsonExtract(json));
-                
+                trasfromedData.push(jsonExtract(json));           
                 if (i % BATCH_SIZE === 0 || i === guids.length - 1 ) {
-                    console.log(`Processed ${i + 1}/${guids.length} (${Math.round((i + 1) / guids.length *1000)}%)`);
+                    console.log(`Processed ${i + 1}/${guids.length} (${Math.round((i + 1) / guids.length *100)}%)`);
                 }
-
                 await setTimeout(DELAY_MS);
             } catch (err) {
                 console.error(`Skipped GUID ${guid}: `, err)
@@ -33,7 +31,6 @@ const run = async () => {
 
         if (trasfromedData.length === 0) {
             throw new Error('No data to save.');
-            
         }
 
         saveAsCSV(trasfromedData, 'output.csv');

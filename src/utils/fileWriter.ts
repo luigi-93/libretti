@@ -7,5 +7,5 @@ export const saveAsCSV = (data: any[], filepath: string) => {
         fields: Object.keys(data[0]),   
         });
     const csv = parser.parse(data);
-    fs.writeFileSync(filepath, csv);
+    fs.writeFileSync(filepath, csv, 'utf8');
 };

@@ -3,8 +3,8 @@ import { saveAsCSV } from "../utils/fileWriter";
 
 const testData = [{
     nomecongnome: 'Marotta Vittorio',
-    nome: 'null',
-    cognome: 'null',
+    nome: 'Luigi',
+    cognome: 'pippo',
     dataIntervento: '2022-11-08T04:00:00',
     via: 'Via Don Morosini',
     numero: '159',
@@ -24,5 +24,5 @@ const testData = [{
     valoriCalcolati: '77',
     rendimentoCombustione: 99.1
   }];
-  
+
 saveAsCSV(testData, 'test.csv');
